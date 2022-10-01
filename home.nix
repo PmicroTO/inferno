@@ -9,6 +9,15 @@ in
   imports = [
     (import "${home-manager}/nixos")
 		];
+
+	
+	systemd.user.services."podman-tachidesk-server" = {
+		description = "Tachidesk Server";
+		script = "${pkgs.podman}/bin/podman run -p 4567:4567 ghcr.io/suwayomi/tachidesk";
+		enable = true;
+		path = with pkgs; [ podman ];
+		};		
+	
 	environment.pathsToLink = [ "/share/zsh" ];
 	users.users.lucio.shell = pkgs.zsh;
 	environment.shells = with pkgs; [ zsh ];
@@ -171,9 +180,8 @@ in
 				window-preview-title-position = "TOP";
 			 	};
 
-
 		}; #######DCONF END##########
-	
+
     /* Here goes your home-manager config, eg home.packages = [ pkgs.foo ]; */
   }; #######lucio END
   
