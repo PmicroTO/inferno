@@ -1,6 +1,12 @@
 { config, pkgs, ... }:
 
 {
+
+	virtualisation.podman = {
+		enable = true;
+		dockerCompat = true;	
+	};
+	
 	environment.systemPackages = with pkgs; [ 
 		epson-escpr2
 		micro
@@ -25,5 +31,4 @@
 		yelp
 		]);
 	
-
 }

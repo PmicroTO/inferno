@@ -32,12 +32,18 @@
       fsType = "vfat";
     };
 
-      fileSystems."/mnt/258f734e-178b-41be-b2b5-8b34444be699" =
-    { device = "/dev/disk/by-uuid/258f734e-178b-41be-b2b5-8b34444be699";
-      fsType = "auto";
-      options = [ "nosuid,nodev,nofail,x-gvfs-show" ];
-    };
-
+	fileSystems."/mnt/258f734e-178b-41be-b2b5-8b34444be699" =
+		{ device = "/dev/disk/by-uuid/258f734e-178b-41be-b2b5-8b34444be699";
+			fsType = "auto";
+			options = [ "nosuid,nodev,nofail,x-gvfs-show" ];
+		};
+		
+	fileSystems."/home/lucio/.cache" =
+		{ device = "tmpfs";
+			fsType = "tmpfs";
+			options = [ "noatime,nodev,nosuid,size=2G" ];
+		};
+		
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
