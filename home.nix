@@ -183,6 +183,9 @@ in
 				enabled = true;
 				auth_json = "/home/lucio/.config/auth.json";
 			};			
+			audio = {
+				mixer_volume = 50;
+			};
 		};
 		extraConfigFiles = [ /home/lucio/.config/lfmpwd ];
 	};
