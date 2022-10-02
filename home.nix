@@ -51,11 +51,6 @@ in
 			enableAutosuggestions = true;
 			enableCompletion =true;
 			enableSyntaxHighlighting = true;
-#			completionInit = {
-#				"autoload -Uz compinit promptinit"
-#				"compinit"
-#				"promptinit"
-#			};
 			dotDir = ".config/zsh";
 			oh-my-zsh= {
 				enable = true;

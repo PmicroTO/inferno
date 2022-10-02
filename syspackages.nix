@@ -20,7 +20,7 @@
 		rhythmbox
 		]) ++ (with pkgs.gnome; [
   		cheese 
-  		gnome-music
+#  		gnome-music
   		gnome-terminal
 		epiphany 
 		gnome-characters
