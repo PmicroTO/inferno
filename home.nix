@@ -177,7 +177,16 @@ in
 		}; #######DCONF END##########
 	services.mopidy = {
 		enable = true;
-		extensionPackages = with pkgs; [ mopidy-iris mopidy-local mopidy-ytmusic mopidy-podcast ];
+		extensionPackages = with pkgs; [ mopidy-iris mopidy-local mopidy-ytmusic mopidy-podcast mopidy-scrobbler ];
+		settings = {
+			ytmusic ={
+				enabled = true;
+				auth_json = "/home/lucio/.config/auth.json";
+			};
+			
+		};
+
+		extraConfigFiles = [ /home/lucio/.config/lfmpwd ];
 	};
 	
     /* Here goes your home-manager config, eg home.packages = [ pkgs.foo ]; */
