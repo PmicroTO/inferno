@@ -9,7 +9,6 @@ in
   imports = [
     (import "${home-manager}/nixos")
 		];
-
 	
 	systemd.user.services."podman-tachidesk-server" = {
 		description = "Tachidesk Server";

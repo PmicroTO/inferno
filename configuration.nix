@@ -45,13 +45,6 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-  services.gnome.tracker.enable = true;
-  services.gnome.tracker-miners.enable = true;
-#  services.gnome.core-utilities.enable = false;
-
-  # Enable sound.
-  sound.enable = true;
-  # hardware.pulseaudio.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.lucio = {
