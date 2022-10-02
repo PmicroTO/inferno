@@ -1,16 +1,6 @@
 { config, pkgs, ... }:
 
 {
-	services.mopidy = {
-		enable = true;
-		extensionPackages = with pkgs; [ mopidy-ytmusic mopidy-iris mopidy-muse mopidy-local mopidy-podcast ];
-		configuration = "
-			[ytmusic]
-			stream_preference = 251, 140, 250, 249
-		";
-	};
-
-	
 	virtualisation.podman = {
 		enable = true;
 		dockerCompat = true;	
@@ -21,7 +11,6 @@
 		micro
 		nextdns
 		rnnoise-plugin
-		mopidy
 	];
 
 	environment.gnome.excludePackages = (with pkgs; [
