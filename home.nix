@@ -177,7 +177,7 @@ in
 		}; #######DCONF END##########
 	services.mopidy = {
 		enable = true;
-		extensionPackages = with pkgs; [ mopidy-muse mopidy-local mopidy-ytmusic mopidy-podcast ];
+		extensionPackages = with pkgs; [ mopidy-iris mopidy-local mopidy-ytmusic mopidy-podcast ];
 	};
 	
     /* Here goes your home-manager config, eg home.packages = [ pkgs.foo ]; */
