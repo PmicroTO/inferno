@@ -182,10 +182,8 @@ in
 			ytmusic ={
 				enabled = true;
 				auth_json = "/home/lucio/.config/auth.json";
-			};
-			
+			};			
 		};
-
 		extraConfigFiles = [ /home/lucio/.config/lfmpwd ];
 	};
 	
