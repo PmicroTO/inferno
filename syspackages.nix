@@ -7,7 +7,6 @@
 	};
 	
 	environment.systemPackages = with pkgs; [ 
-		epson-escpr2
 		micro
 		nextdns
 		rnnoise-plugin
