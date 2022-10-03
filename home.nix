@@ -177,7 +177,7 @@ in
 		}; #######DCONF END##########
 	services.mopidy = {
 		enable = true;
-		extensionPackages = with pkgs; [ mopidy-muse mopidy-local mopidy-ytmusic mopidy-podcast mopidy-scrobbler ];
+		extensionPackages = with pkgs; [ mopidy-muse  mopidy-ytmusic mopidy-podcast mopidy-scrobbler ];
 		settings = {
 			ytmusic ={
 				enabled = true;
