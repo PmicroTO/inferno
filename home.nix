@@ -131,6 +131,7 @@ in
 				num-workspaces = 4;
 				};
 		"org/gnome/desktop/input-sources" = {
+#				sources = [ (mkTuple [ "xkb" "us" ]) (mkTuple [ "xkb" "us+alt-intl" ]) ];
 				xkb-options = [ "terminate:ctrl_alt_bksp" "caps:swapescape" ];
 				};
 		"org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
