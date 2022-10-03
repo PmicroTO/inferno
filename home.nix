@@ -9,18 +9,17 @@ in
   imports = [
     (import "${home-manager}/nixos")
 		];
-	
+		
 	systemd.user.services."podman-tachidesk-server" = {
 		description = "Tachidesk Server";
 		script = "${pkgs.podman}/bin/podman run -p 4567:4567 ghcr.io/suwayomi/tachidesk";
 		enable = true;
 		path = with pkgs; [ podman ];
 		};		
-	
 	environment.pathsToLink = [ "/share/zsh" ];
 	users.users.lucio.shell = pkgs.zsh;
 	environment.shells = with pkgs; [ zsh ];
-	home-manager.users.lucio = {
+	home-manager.users.lucio = { lib, ... }: {
 	home.packages = (with pkgs ; [ 
 		brave
 		calibre
@@ -83,7 +82,7 @@ in
 				target = ".local/share/icons/Sakuya-cursors";
 			};
 		};
-		dconf.settings = {
+		dconf.settings = with lib.hm.gvariant; {
 		"org/gnome/desktop/peripherals/trackball" = { scroll-wheel-emulation-button = 8; };
 		"org/gnome/desktop/background" = {
 				color-shading-type = "solid";
@@ -131,7 +130,7 @@ in
 				num-workspaces = 4;
 				};
 		"org/gnome/desktop/input-sources" = {
-#				sources = [ (mkTuple [ "xkb" "us" ]) (mkTuple [ "xkb" "us+alt-intl" ]) ];
+				sources = [ (mkTuple [ "xkb" "us" ]) (mkTuple [ "xkb" "us+alt-intl" ]) ];
 				xkb-options = [ "terminate:ctrl_alt_bksp" "caps:swapescape" ];
 				};
 		"org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
