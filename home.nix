@@ -47,6 +47,7 @@ in
 	programs.alacritty = {
 			enable = true;
 			settings = {
+				font.family = "JetBrainsMono";
 				window = { 
 					padding = {
 						x = 5;
@@ -121,9 +122,9 @@ in
 		"org/gnome/desktop/interface" = { 
 				cursor-theme = "Sakuya-cursors";
 				icon-theme = "Nordzy-dark";
-				document-font-name = "Iosevka 13";
-				font-name = "Iosevka 13";
-				monospace-font-name = "Iosevka 13";
+				document-font-name = "Liberation Serif 13";
+				font-name = "Liberation Sans 11";
+				monospace-font-name = "Liberation Sans 11";
 				};
 		"org/gnome/system/locale" = { 
 				region = "pt_BR.UTF-8"; 
