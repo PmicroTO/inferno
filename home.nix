@@ -20,6 +20,7 @@ in
 	users.users.lucio.shell = pkgs.zsh;
 	environment.shells = with pkgs; [ zsh ];
 	home-manager.users.lucio = { lib, ... }: {
+	home.stateVersion = "22.11";
 	home.packages = (with pkgs ; [ 
 		brave
 		calibre
@@ -43,7 +44,18 @@ in
 		gnomeExtensions.caffeine
 		gnomeExtensions.dash-to-panel
  		]);
-	home.stateVersion = "22.11";
+	programs.alacritty = {
+			enable = true;
+			settings = {
+				window = { 
+					padding = {
+						x = 5;
+						y = 5;
+						};
+					decorations = "none";
+				};
+			};
+		};
 	programs.zsh ={
 			enable = true;
 			enableAutosuggestions = true;
@@ -109,6 +121,9 @@ in
 		"org/gnome/desktop/interface" = { 
 				cursor-theme = "Sakuya-cursors";
 				icon-theme = "Nordzy-dark";
+				document-font-name = "Iosevka 13";
+				font-name = "Iosevka 13";
+				monospace-font-name = "Iosevka 13";
 				};
 		"org/gnome/system/locale" = { 
 				region = "pt_BR.UTF-8"; 
@@ -159,7 +174,7 @@ in
 				};
 		"org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
 				binding = "<Super>Return";
-				command = "kgx";
+				command = "alacritty";
 				name = "Terminal";
 				};
 		"org/gnome/shell/extensions/dash-to-panel" = {

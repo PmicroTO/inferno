@@ -10,12 +10,14 @@
 		micro
 		nextdns
 		rnnoise-plugin
+		nerdfonts
 	];
 
 	environment.gnome.excludePackages = (with pkgs; [
 		gnome-photos
 		gnome-tour
 		rhythmbox
+		gnome-console
 		]) ++ (with pkgs.gnome; [
   		cheese 
   		gnome-music
