@@ -6,10 +6,11 @@
 		enable = true; 
 		drivers = [ pkgs.epson-escpr ];
 		};
-	services.avahi.enable = true;
-	services.avahi.nssmdns = true;
-	hardware.sane.enable = true;
-	 networking = {
+	services.avahi = { 
+		enable = true;
+		nssmdns = true; 
+		};
+	networking = {
 		nameservers = [ "127.0.0.1" "::1" ];
 		networkmanager.enable = true;
 		networkmanager.dns = "none";

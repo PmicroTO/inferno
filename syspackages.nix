@@ -8,7 +8,6 @@
 	
 	environment.systemPackages = with pkgs; [ 
 		micro
-		nextdns
 		rnnoise-plugin
 		nerdfonts
 	];
@@ -29,6 +28,5 @@
 		totem
 		gnome-maps
 		yelp
-		]);
-	
+		]);	
 }

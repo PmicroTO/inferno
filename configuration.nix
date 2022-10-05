@@ -49,7 +49,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.lucio = {
      isNormalUser = true;
-     extraGroups = [ "wheel" "networkmanager" "i2c"]; # Enable ‘sudo’ for the user.
+     extraGroups = [ "wheel" "networkmanager" "i2c" ];
    };
 
   # Enable automatic login for the user.
