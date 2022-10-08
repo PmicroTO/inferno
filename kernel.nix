@@ -17,7 +17,6 @@
 		initrd.verbose = false;
 		};
 	hardware.i2c.enable = true;
-	zramSwap.enable = true;
 	nix.gc = {
 		automatic = true;
 		dates = "weekly";

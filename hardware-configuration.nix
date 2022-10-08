@@ -21,23 +21,22 @@
 
   boot.initrd.luks.devices."nixos".device = "/dev/disk/by-uuid/848756ae-1143-4e51-bd5b-f9a25c67b5a8";
 
-  fileSystems."/home" =
+	fileSystems."/home" =
     { device = "/dev/mapper/nixos";
       fsType = "btrfs";
       options = [ "subvol=@home" ];
     };
 
-  fileSystems."/boot" =
+	fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/16D0-FCF2";
       fsType = "vfat";
     };
-
-	fileSystems."/mnt/258f734e-178b-41be-b2b5-8b34444be699" =
-		{ device = "/dev/disk/by-uuid/258f734e-178b-41be-b2b5-8b34444be699";
-			fsType = "auto";
-			options = [ "nosuid,nodev,nofail,x-gvfs-show" ];
-		};
-		
+    		
+	fileSystems."/mnt/f1451973-4324-4d88-bb57-4a712f7beaf0" =
+    { device = "/dev/disk/by-uuid/f1451973-4324-4d88-bb57-4a712f7beaf0";
+      fsType = "btrfs";
+      options = [ "nosuid" "nodev" "nofail" "x-gvfs-show" "compress=zstd:8" "autodefrag"];
+    };    
 	fileSystems."/home/lucio/.cache" =
 		{ device = "tmpfs";
 			fsType = "tmpfs";

@@ -60,6 +60,11 @@
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
+    # enable antivirus clamav and
+  # keep the signatures' database updated
+  services.clamav.daemon.enable = true;
+  services.clamav.updater.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true; 
   # Copy the NixOS configuration file and link it from the resulting system

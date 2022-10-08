@@ -9,6 +9,7 @@
 	services.avahi = { 
 		enable = true;
 		nssmdns = true; 
+		openFirewall = true;
 		};
 	networking = {
 		nameservers = [ "127.0.0.1" "::1" ];
@@ -18,6 +19,14 @@
 	services.nextdns = {
 		enable = true;
 		arguments = [ "-config" "cc6b68" "-cache-size" "20MB" ];
-	};
+		};
 	programs.ssh.startAgent = true;
+
+		networking.firewall.enable = true;
+		networking.firewall.allowedTCPPorts = [ 128 4096 ];
+		networking.firewall.allowedUDPPorts = [];
+	services = { 
+		transmission.openFirewall = true;
+		taskserver.openFirewall = true;
+		};
 }

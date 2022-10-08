@@ -38,11 +38,12 @@ in
 		steam-run
 		dconf2nix
 		vscodium
- 		]) ++ (with pkgs ;[
-
-		gnomeExtensions.gnome-bedtime
-		gnomeExtensions.caffeine
-		gnomeExtensions.dash-to-panel
+		arcanPackages.espeak
+		detox
+ 		]) ++ (with pkgs.gnomeExtensions ;[
+		gnome-bedtime
+		caffeine
+		dash-to-panel
  		]);
 	programs.alacritty = {
 			enable = true;
@@ -73,8 +74,15 @@ in
 		[ -n "$PS1" ] && \
 		    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
 		        source "$BASE16_SHELL/profile_helper.sh"
-      '';		
-      
+      		'';		
+	shellAliases = {
+			ls = "ls -A --color=auto -cltp --si --group-directories-first";
+			otcry = "sudo cryptsetup tcryptOpen";
+			ctcry = "sudo cryptsetup tcryptClose";
+			oluks = "sudo cryptsetup luksOpen";
+			cluks = "sudo cryptsetup luksClose";
+			nluks = "cryptsetup --type luks -c serpent-xts-plain64 -s 512 --hash whirlpool luksFormat";
+			};
 		};
 	programs.git = {
 			enable = true;
