@@ -3,12 +3,10 @@
 with lib.hm.gvariant;
 
 let
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";  
+	home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
 in
 {
-  imports = [
-    (import "${home-manager}/nixos")
-		];		
+	imports = [ (import "${home-manager}/nixos") ];		
 	environment.pathsToLink = [ "/share/zsh" ];
 	users.users.lucio.shell = pkgs.zsh;
 	environment.shells = with pkgs; [ zsh ];
@@ -30,14 +28,17 @@ in
 		taskwarrior
 		steam-run
 		dconf2nix
-		vscodium
 		arcanPackages.espeak
 		detox
  		]) ++ (with pkgs.gnomeExtensions ;[
-		gnome-bedtime
+#		gnome-bedtime
 		caffeine
 		dash-to-panel
+		task-widget
  		]);
+ 	programs.tmux = {
+		enable = true;
+ 		};
 	programs.alacritty = {
 			enable = true;
 			settings = {
@@ -50,6 +51,9 @@ in
 					decorations = "none";
 				};
 			};
+		};
+	programs.neovim = {
+		enable = true;
 		};
 	programs.zsh ={
 			enable = true;
@@ -206,20 +210,6 @@ in
 			 	};
 
 		}; #######DCONF END##########
-	services.mopidy = {
-		enable = true;
-		extensionPackages = with pkgs; [ mopidy-muse  mopidy-ytmusic mopidy-podcast mopidy-scrobbler ];
-		settings = {
-			ytmusic ={
-				enabled = true;
-				auth_json = "/home/lucio/.config/auth.json";
-			};			
-			audio = {
-				mixer_volume = 50;
-			};
-		};
-		extraConfigFiles = [ /home/lucio/.config/lfmpwd ];
-	};
 	
     /* Here goes your home-manager config, eg home.packages = [ pkgs.foo ]; */
   }; #######lucio END
@@ -231,7 +221,5 @@ in
 				autoStart = true;
 				ports = [ "127.0.0.1:4567:4567" ];
 				};
-			};
-
-  
+			};  
 }
