@@ -10,7 +10,7 @@ in
 	environment.pathsToLink = [ "/share/zsh" ];
 	users.users.lucio.shell = pkgs.zsh;
 	environment.shells = with pkgs; [ zsh ];
-	home-manager.users.lucio = { lib, ... }: {
+	home-manager.users.lucio = { lib, ... }: with lib.hm.gvariant; {
 	home.stateVersion = "22.11";
 	home.packages = (with pkgs ; [ 
 		brave
@@ -114,7 +114,7 @@ in
 				target = ".config/base16-shell-master";
 			};
 		};
-		dconf.settings = with lib.hm.gvariant; {
+		dconf.settings = {
 		"org/gnome/desktop/peripherals/trackball" = { scroll-wheel-emulation-button = 8; };
 		"org/gnome/desktop/background" = {
 				color-shading-type = "solid";
