@@ -4,7 +4,11 @@ with lib.hm.gvariant;
 
 let
 	home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+	bedtime8 = import (builtins.fetchTarball {
+		url = "https://github.com/NixOS/nixpkgs/archive/d1c3fea7ecbed758168787fe4e4a3157e52bc808.tar.gz";
+		}) {};
 in
+
 {
 	imports = [ (import "${home-manager}/nixos") ];		
 	environment.pathsToLink = [ "/share/zsh" ];
@@ -12,7 +16,7 @@ in
 	environment.shells = with pkgs; [ zsh ];
 	home-manager.users.lucio = { lib, ... }: with lib.hm.gvariant; {
 	home.stateVersion = "22.11";
-	home.packages = (with pkgs ; [ 
+	home.packages =  (with pkgs ; [ 
 		brave
 		calibre
 		transmission-gtk
@@ -30,8 +34,9 @@ in
 		dconf2nix
 		arcanPackages.espeak
 		detox
+		hakuneko
  		]) ++ (with pkgs.gnomeExtensions ;[
-#		gnome-bedtime
+ 		bedtime8.pkgs.gnomeExtensions.gnome-bedtime
 		caffeine
 		dash-to-panel
 		task-widget
@@ -213,13 +218,4 @@ in
 	
     /* Here goes your home-manager config, eg home.packages = [ pkgs.foo ]; */
   }; #######lucio END
-
-	virtualisation.oci-containers.backend = "podman";
-	virtualisation.oci-containers.containers = {
-		container-name = {
-				image = "ghcr.io/suwayomi/tachidesk";
-				autoStart = true;
-				ports = [ "127.0.0.1:4567:4567" ];
-				};
-			};  
 }

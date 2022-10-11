@@ -22,9 +22,11 @@
 		};
 	programs.ssh.startAgent = true;
 
-		networking.firewall.enable = true;
-		networking.firewall.allowedTCPPorts = [ 128 4096 ];
-		networking.firewall.allowedUDPPorts = [];
+		networking.firewall = {
+			enable = true;
+			allowedTCPPorts = [ ];
+			allowedUDPPorts = [];
+			};
 	services = { 
 		transmission.openFirewall = true;
 		taskserver.openFirewall = true;
