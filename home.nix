@@ -4,9 +4,6 @@ with lib.hm.gvariant;
 
 let
 	home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
-	bedtime8 = import (builtins.fetchTarball {
-		url = "https://github.com/NixOS/nixpkgs/archive/d1c3fea7ecbed758168787fe4e4a3157e52bc808.tar.gz";
-		}) {};
 in
 
 {
@@ -27,7 +24,7 @@ in
 		nordzy-icon-theme
 		disfetch
 		stremio
-		kotatogram-desktop
+#		kotatogram-desktop
 		ventoy-bin-full
 		taskwarrior
 		steam-run
@@ -36,10 +33,12 @@ in
 		detox
 		hakuneko
  		]) ++ (with pkgs.gnomeExtensions ;[
- 		bedtime8.pkgs.gnomeExtensions.gnome-bedtime
-		caffeine
+ 		gnome-bedtime
+		espresso
 		dash-to-panel
 		task-widget
+#		memento-mori
+#		material-shell
  		]);
  	programs.tmux = {
 		enable = true;
