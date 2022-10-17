@@ -32,30 +32,15 @@ in
 		arcanPackages.espeak
 		detox
 		hakuneko
+		blackbox-terminal
  		]) ++ (with pkgs.gnomeExtensions ;[
  		gnome-bedtime
 		espresso
 		dash-to-panel
-		task-widget
-#		memento-mori
-#		material-shell
  		]);
  	programs.tmux = {
 		enable = true;
  		};
-	programs.alacritty = {
-			enable = true;
-			settings = {
-				font.family = "JetBrainsMono";
-				window = { 
-					padding = {
-						x = 5;
-						y = 5;
-						};
-					decorations = "none";
-				};
-			};
-		};
 	programs.neovim = {
 		enable = true;
 		};
@@ -99,8 +84,8 @@ in
 			};
 		".background-image" = {
 				source = pkgs.fetchurl { 
-				url = "https://r4.wallpaperflare.com/wallpaper/776/264/978/anime-overlord-shalltear-bloodfallen-hd-wallpaper-8960282de16add5b56a7784fc0d1a6cd.jpg"; 
-				sha256 = "f3a35c5b0b37d05bbc1a9f343cc98e7a86495e78816bd2302cff552d925f8f03";
+				url = "https://images3.alphacoders.com/784/784785.png"; 
+				sha256 = "7991fea419fecd3f17f90037ea4e1e227aa9b9f97b2196f1c66429c41da7122d";
 						};
 			};
 		"Sakuya-cursors" = {
@@ -184,33 +169,36 @@ in
 				};
 		"org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
 				binding = "<Super>Return";
-				command = "alacritty";
+				command = "blackbox";
 				name = "Terminal";
 				};
 		"org/gnome/shell/extensions/dash-to-panel" = {
-				animate-appicon-hover-animation-extent = "{'RIPPLE': 4, 'PLANK': 4, 'SIMPLE': 1}";
-				appicon-margin = 8;
-				appicon-padding = 4;
-				available-monitors = [ 0 ];
-				hide-overview-on-startup = true;
-				hotkeys-overlay-combo = "TEMPORARILY";
-				leftbox-padding = -1;
-				panel-anchors = ''
-						{"0":"MIDDLE"}
-						'';
-				panel-lengths = ''
-						{"0":100}
-						'';
-				panel-sizes = ''
-						{"0":48}
-						'';
-				primary-monitor = 0;
-				progress-show-count = false;
-				status-icon-padding = -1;
-				trans-bg-color = "#323232";
-				trans-use-custom-bg = true;
-				tray-padding = -1;
-				window-preview-title-position = "TOP";
+	  animate-appicon-hover-animation-extent = "{'RIPPLE': 4, 'PLANK': 4, 'SIMPLE': 1}";
+      appicon-margin = 8;
+      appicon-padding = 4;
+      available-monitors = [ 0 ];
+      hide-overview-on-startup = true;
+      hotkeys-overlay-combo = "TEMPORARILY";
+      leftbox-padding = -1;
+      panel-anchors = ''
+        {"0":"MIDDLE"}
+      '';
+      panel-element-positions = ''
+        {"0":[{"element":"showAppsButton","visible":true,"position":"centerMonitor"},{"element":"activitiesButton","visible":false,"position":"centered"},{"element":"leftBox","visible":false,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"centerMonitor"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}
+      '';
+      panel-lengths = ''
+        {"0":100}
+      '';
+      panel-sizes = ''
+        {"0":48}
+      '';
+      primary-monitor = 0;
+      progress-show-count = false;
+      status-icon-padding = -1;
+      trans-bg-color = "#323232";
+      trans-use-custom-bg = true;
+      tray-padding = -1;
+
 			 	};
 
 		}; #######DCONF END##########
