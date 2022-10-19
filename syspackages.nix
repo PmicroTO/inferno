@@ -11,6 +11,8 @@
 		micro
 		rnnoise-plugin
 		nerdfonts
+		nmon
+		nvi
 	];
 	environment.gnome.excludePackages = (with pkgs; [
 		gnome-photos

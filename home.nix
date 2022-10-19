@@ -18,7 +18,7 @@ in
 		calibre
 		transmission-gtk
 		foliate
-		deja-dup
+		pika-backup
 		vlc
 		authenticator	
 		nordzy-icon-theme
@@ -33,6 +33,9 @@ in
 		detox
 		hakuneko
 		blackbox-terminal
+		adw-gtk3
+		ecryptfs
+		ecryptfs-helper
  		]) ++ (with pkgs.gnomeExtensions ;[
  		gnome-bedtime
 		espresso
@@ -68,6 +71,7 @@ in
 			oluks = "sudo cryptsetup luksOpen";
 			cluks = "sudo cryptsetup luksClose";
 			nluks = "cryptsetup --type luks -c serpent-xts-plain64 -s 512 --hash whirlpool luksFormat";
+			taskdueclean = "task $(task uuids due.before:now) delete";
 			};
 		};
 	programs.git = {
@@ -95,6 +99,23 @@ in
 						};
 				target = ".local/share/icons/Sakuya-cursors";
 			};
+		"Quartz-Chicle-main" = {
+				source = pkgs.fetchzip { 
+				url = "https://github.com/darkomarko42/Quartz/archive/refs/tags/0.6.zip";
+				sha256 = "005jn8yjikzq0krkz1gxhs18ia7vws2z95d96609h52jniyydbln";
+						} + "/Quartz";
+				target = ".local/share/themes/quartz";
+			};
+ 		"Gruvbox-Dark-BL" ={ 
+ 				source = pkgs.fetchFromGitHub {
+    			owner = "Fausto-Korpsvart";
+    			repo = "Gruvbox-GTK-Theme";
+    			rev = "9f68262b38f015eb0c21d895a6d4e2208f1edae2";
+    			sha256 = "05wda3i758jj58vh8rwbhd7njxdm0ighcsdfqbwxds2kr4rhym8a";
+  						} + "/themes/Gruvbox-Dark-BL";
+  				target = ".local/share/themes/Gruvbox-Dark-BL";
+
+  			};
 		"base16-shell-master" = {
 				source = pkgs.fetchzip {
 				url = "https://github.com/chriskempson/base16-shell/archive/refs/heads/master.zip" ;
@@ -115,10 +136,11 @@ in
 				};
 		"org/gnome/desktop/interface" = { 
 				cursor-theme = "Sakuya-cursors";
-				icon-theme = "Nordzy-dark";
+				icon-theme = "Nordzy-pink";
 				document-font-name = "Liberation Serif 13";
 				font-name = "Liberation Sans 11";
 				monospace-font-name = "Liberation Sans 11";
+				gtk-theme = "adw-gtk3";
 				};
 		"org/gnome/system/locale" = { 
 				region = "pt_BR.UTF-8"; 
@@ -173,33 +195,50 @@ in
 				name = "Terminal";
 				};
 		"org/gnome/shell/extensions/dash-to-panel" = {
-	  animate-appicon-hover-animation-extent = "{'RIPPLE': 4, 'PLANK': 4, 'SIMPLE': 1}";
-      appicon-margin = 8;
+      animate-appicon-hover-animation-extent = "{'RIPPLE': 4, 'PLANK': 4, 'SIMPLE': 1}";
+      appicon-margin = 6;
       appicon-padding = 4;
       available-monitors = [ 0 ];
+      dot-position = "BOTTOM";
+      dot-style-focused = "DOTS";
+      dot-style-unfocused = "DOTS";
+      group-apps = true;
       hide-overview-on-startup = true;
       hotkeys-overlay-combo = "TEMPORARILY";
       leftbox-padding = -1;
+      overview-click-to-exit = false;
       panel-anchors = ''
         {"0":"MIDDLE"}
       '';
       panel-element-positions = ''
-        {"0":[{"element":"showAppsButton","visible":true,"position":"centerMonitor"},{"element":"activitiesButton","visible":false,"position":"centered"},{"element":"leftBox","visible":false,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"centerMonitor"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}
+        {"0":[{"element":"showAppsButton","visible":true,"position":"centerMonitor"},{"element":"activitiesButton","visible":false,"position":"centered"},{"element":"leftBox","visible":false,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"centerMonitor"},{"element":"centerBox","visible":false,"position":"centerMonitor"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}]}
       '';
       panel-lengths = ''
         {"0":100}
+      '';
+      panel-positions = ''
+        {"0":"BOTTOM"}
       '';
       panel-sizes = ''
         {"0":48}
       '';
       primary-monitor = 0;
       progress-show-count = false;
+      show-appmenu = false;
+      show-favorites = true;
+      show-running-apps = true;
       status-icon-padding = -1;
+      stockgs-keep-top-panel = false;
       trans-bg-color = "#323232";
+      trans-panel-opacity = 0.9500000000000001;
       trans-use-custom-bg = true;
+      trans-use-custom-opacity = false;
       tray-padding = -1;
 
+
 			 	};
+			 	
+		"user-theme" = { name = "quartz"; };
 
 		}; #######DCONF END##########
 	
