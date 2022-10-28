@@ -31,7 +31,7 @@
 		options = "--delete-older-than 7d";
 		};
 	system.autoUpgrade = {
-		enable = true;
+		enable = false;
 		dates = "daily";
 		channel = "nixos https://nixos.org/channels/nixos-unstable";
 		allowReboot = false;

@@ -24,7 +24,7 @@ in
 		nordzy-icon-theme
 		disfetch
 		stremio
-#		kotatogram-desktop
+		kotatogram-desktop
 		ventoy-bin-full
 		taskwarrior
 		steam-run
