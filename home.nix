@@ -36,6 +36,7 @@ in
 		adw-gtk3
 		ecryptfs
 		ecryptfs-helper
+		dino
  		]) ++ (with pkgs.gnomeExtensions ;[
  		gnome-bedtime
 		espresso
