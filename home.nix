@@ -23,8 +23,6 @@ in
 		authenticator	
 		nordzy-icon-theme
 		disfetch
-		stremio
-		kotatogram-desktop
 		ventoy-bin-full
 		taskwarrior
 		steam-run
@@ -36,7 +34,7 @@ in
 		adw-gtk3
 		ecryptfs
 		ecryptfs-helper
-		dino
+		gnome-feeds
  		]) ++ (with pkgs.gnomeExtensions ;[
  		gnome-bedtime
 		espresso
@@ -72,7 +70,8 @@ in
 			oluks = "sudo cryptsetup luksOpen";
 			cluks = "sudo cryptsetup luksClose";
 			nluks = "cryptsetup --type luks -c serpent-xts-plain64 -s 512 --hash whirlpool luksFormat";
-			taskdueclean = "task $(task uuids due.before:now) delete";
+			taskpurge = "task $(task uuids due.before:now) purge";
+			opvault = "ecryptfs-mount-private ; sleep 300 ; ecryptfs-umount-private";
 			};
 		};
 	programs.git = {
@@ -242,6 +241,16 @@ in
 		"user-theme" = { name = "quartz"; };
 
 		}; #######DCONF END##########
+	xdg.userDirs = {
+		enable = true;
+		createDirectories = true;
+		documents = "/mnt/f1451973-4324-4d88-bb57-4a712f7beaf0/Documents";
+		download = "/mnt/f1451973-4324-4d88-bb57-4a712f7beaf0/Downloads";
+		music = "/mnt/f1451973-4324-4d88-bb57-4a712f7beaf0/Music";
+		pictures = "/mnt/f1451973-4324-4d88-bb57-4a712f7beaf0/Pictures";
+		videos = "/mnt/f1451973-4324-4d88-bb57-4a712f7beaf0/Videos";
+		
+		};
 	
     /* Here goes your home-manager config, eg home.packages = [ pkgs.foo ]; */
   }; #######lucio END
