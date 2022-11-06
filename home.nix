@@ -56,14 +56,11 @@ in
 #		enableUpdateCheck = false;
 #		enableExtensionUpdateCheck = false;
 		package = pkgs.vscodium;
-		extensions = (with pkgs ;[ vscode-extensions.ms-python.python ]);
+		extensions = (with pkgs ;[ vscode-extensions.ms-python.python vscode-extensions.bbenoist.nix ]);
  		};
  	programs.tmux = {
 		enable = true;
  		};
-	programs.neovim = {
-		enable = true;
-		};
 	programs.zsh ={
 			enable = true;
 			enableAutosuggestions = true;
