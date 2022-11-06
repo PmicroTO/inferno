@@ -15,6 +15,7 @@ in
 	home.stateVersion = "22.11";
 	home.packages =  (with pkgs ; [ 
 		brave
+		vscodium
 		calibre
 		transmission-gtk
 		foliate
@@ -30,11 +31,13 @@ in
 		arcanPackages.espeak
 		detox
 		hakuneko
-		blackbox-terminal
+		gnome-console
 		adw-gtk3
 		ecryptfs
 		ecryptfs-helper
-		gnome-feeds
+		droidcam
+		webcamoid
+		gnome.pomodoro
  		]) ++ (with pkgs.gnomeExtensions ;[
  		gnome-bedtime
 		espresso
@@ -139,7 +142,7 @@ in
 				icon-theme = "Nordzy-pink";
 				document-font-name = "Liberation Serif 13";
 				font-name = "Liberation Sans 11";
-				monospace-font-name = "Liberation Sans 11";
+				monospace-font-name = "SauceCodePro Nerd Font Mono 11";
 				gtk-theme = "adw-gtk3";
 				};
 		"org/gnome/system/locale" = { 
@@ -191,7 +194,7 @@ in
 				};
 		"org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
 				binding = "<Super>Return";
-				command = "blackbox";
+				command = "kgx";
 				name = "Terminal";
 				};
 		"org/gnome/shell/extensions/dash-to-panel" = {
@@ -254,4 +257,5 @@ in
 	
     /* Here goes your home-manager config, eg home.packages = [ pkgs.foo ]; */
   }; #######lucio END
+	programs.droidcam.enable = true;
 }

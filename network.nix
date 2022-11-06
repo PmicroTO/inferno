@@ -24,7 +24,7 @@
 
 		networking.firewall = {
 			enable = true;
-			allowedTCPPorts = [ 8554 ];
+			allowedTCPPorts = [ 8554 4747 ];
 			allowedUDPPorts = [];
 			};
 	services = { 

@@ -13,6 +13,10 @@
 		nerdfonts
 		nmon
 		nvi
+
+		(pkgs.systemd.overrideAttrs (oldAttrs: {
+			makeFlags = [ "-O3" ];
+			}))
 	];
 	environment.gnome.excludePackages = (with pkgs; [
 		gnome-photos
