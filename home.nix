@@ -15,7 +15,6 @@ in
 	home.stateVersion = "22.11";
 	home.packages =  (with pkgs ; [ 
 		brave
-		vscodium
 		calibre
 		transmission-gtk
 		foliate
@@ -43,6 +42,13 @@ in
 		espresso
 		dash-to-panel
  		]);
+ 	programs.vscode = {
+		enable = true;
+#		enableUpdateCheck = false;
+#		enableExtensionUpdateCheck = false;
+		package = pkgs.vscodium;
+		extensions = (with pkgs ;[ vscode-extensions.ms-python.python ]);
+ 		};
  	programs.tmux = {
 		enable = true;
  		};
