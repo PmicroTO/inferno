@@ -7,13 +7,10 @@
 		enable = true;
 		dockerCompat = true;	
 	};	
-	environment.systemPackages = with pkgs; [ 
-		micro
+	environment.systemPackages = with pkgs; [
 		rnnoise-plugin
 		nerdfonts
 		nmon
-		nvi
-
 		(pkgs.systemd.overrideAttrs (oldAttrs: {
 			makeFlags = [ "-O3" ];
 			}))
