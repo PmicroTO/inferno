@@ -14,7 +14,16 @@ in
 	home-manager.users.lucio = { lib, ... }: with lib.hm.gvariant; {
 	home.stateVersion = "22.11";
 	home.packages =  (with pkgs ; [ 
-		brave
+#		brave
+		(pkgs.brave.overrideAttrs (oldAttrs: {
+			version = "1.45.121";
+			src = fetchurl {
+				url =  "https://github.com/brave/brave-browser/releases/download/v1.45.121/brave-browser_1.45.121_amd64.deb";
+				sha256 = "sha256-ztshnxJ8XkhNvcu0rxcljIHcHOhmyPiMyBGn916HqK8=";
+				};
+
+			}))
+
 		calibre
 		transmission-gtk
 		foliate
