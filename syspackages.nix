@@ -14,6 +14,16 @@
 		(pkgs.systemd.overrideAttrs (oldAttrs: {
 			makeFlags = [ "-O3" ];
 			}))
+
+		(pkgs.brave.overrideAttrs (oldAttrs: {
+			version = "1.45.121";
+			src = fetchurl {
+				url =  "https://github.com/brave/brave-browser/releases/download/v1.45.121/brave-browser_1.45.121_amd64.deb";
+				sha256 = "sha256-ztshnxJ8XkhNvcu0rxcljIHcHOhmyPiMyBGn916HqK8=";
+				};
+
+			}))
+
 	];
 	environment.gnome.excludePackages = (with pkgs; [
 		gnome-photos
